@@ -3,17 +3,18 @@ package com.example.demoquerydsl.repository.impl;
 import com.example.demoquerydsl.model.Order;
 import com.example.demoquerydsl.model.QOrder;
 import com.example.demoquerydsl.model.User;
-import com.example.demoquerydsl.repository.OrderRepository;
 import com.example.demoquerydsl.repository.OrderRepositoryCustom;
 import com.querydsl.jpa.impl.JPAQuery;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @RequiredArgsConstructor
+@Repository
 public class OrderRepositoryImpl implements OrderRepositoryCustom {
 
     @PersistenceContext
