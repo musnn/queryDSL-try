@@ -24,9 +24,12 @@ public class OrderRepositoryImpl implements OrderRepositoryCustom {
     @Override
     public List<Order> findOrdersByUser(User user) {
         QOrder order = QOrder.order;
-        return queryFactory.selectFrom(order)
+        JPAQuery<Order> query = new JPAQuery<>(entityManager);
+        query.select(order)
+                .from(order)
                 .where(order.user.eq(user))
-                .fetch();
+                .orderBy(order.id.asc());
+        return query.fetch();
     }
 
     @Override
